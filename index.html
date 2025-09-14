@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vadde Sneha Sri Sai - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Formal Color Scheme */
+        :root {
+            --navy: #2c3e50;
+            --dark-blue: #34495e;
+            --light-blue: #3498db;
+            --light-gray: #ecf0f1;
+            --white: #ffffff;
+            --dark-gray: #7f8c8d;
+            --accent: #2980b9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--light-blue);
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--light-blue);
+            color: var(--white);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(44, 62, 80, 0.1) 100%);
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+        
+        .hero-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--dark-blue);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--dark-gray);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-img .img-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--light-blue), var(--navy));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin: 0 auto;
+        }
+        
+        /* Education Section */
+        .education {
+            background-color: var(--light-gray);
+        }
+        
+        .education-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-item h3 {
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+        
+        .education-item .date {
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            padding: 25px;
+            border-radius: 8px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-category h3 {
+            color: var(--light-blue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .skill-list li i {
+            margin-right: 10px;
+            color: var(--light-blue);
+        }
+        
+        /* Experience Section */
+        .experience {
+            background-color: var(--light-gray);
+        }
+        
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-item h3 {
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+        
+        .experience-item .org {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+        
+        .experience-item .date {
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: var(--light-blue);
+            margin-bottom: 15px;
+        }
+        
+        .project-content .date {
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .project-content .tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .project-content .tech span {
+            padding: 5px 10px;
+            background-color: var(--light-gray);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            color: var(--light-blue);
+        }
+        
+        /* Extracurricular Section */
+        .extracurricular {
+            background-color: var(--light-gray);
+        }
+        
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .activity-card h3 {
+            color: var(--light-blue);
+            margin-bottom: 15px;
+        }
+        
+        .activity-card i {
+            font-size: 2.5rem;
+            color: var(--light-blue);
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: var(--white);
+            color: var(--navy);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--light-blue);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--light-blue);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--dark-blue);
+        }
+        
+        /* NEW STYLES FOR ADDED SECTIONS */
+        
+        /* Personal Statement Section */
+        .personal-statement {
+            background-color: var(--light-gray);
+        }
+        
+        .statement-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .statement-content p {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* GitHub Projects Section */
+        .github-projects {
+            background-color: var(--white);
+        }
+        
+        .github-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .github-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .stat {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--light-blue);
+        }
+        
+        /* Resume Section */
+        .resume-section {
+            background-color: var(--light-gray);
+        }
+        
+        .resume-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .resume-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .resume-highlight {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .resume-highlight h4 {
+            color: var(--light-blue);
+            margin-bottom: 10px;
+        }
+        
+        .resume-download {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .github-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Vadde Sneha</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#statement">My Journey</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vadde Sneha Sri Sai</h1>
+                <h2>Computer Science Student & AI Enthusiast</h2>
+                <p>IIIT SriCity | Class Representative | Meraki Arts Club Core Member</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Sneha, a Computer Science and Engineering student at the Indian Institute of Information Technology, SriCity. I'm passionate about technology, artificial intelligence, and creative design.</p>
+                    <p>With a strong foundation in programming and machine learning, I enjoy working on projects that solve real-world problems. I'm currently serving as Class Representative and as a Core Member of Meraki Arts Club.</p>
+                    <p>I believe in continuous learning and pushing boundaries to create innovative solutions. My goal is to leverage technology to make a positive impact in society.</p>
+                    <div class="about-contact">
+                        <p><strong>Phone:</strong> +91 7396721745</p>
+                        <p><strong>Email:</strong> snehasrisai.v23@iiits.in</p>
+                        <p><strong>Location:</strong> SriCity, India</p>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <div class="img-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-item">
+                <h3>Indian Institute of Information Technology, SriCity</h3>
+                <span class="date">2023 – May 2027 (Expected)</span>
+                <p>B.Tech in Computer Science and Engineering</p>
+                <p>Current CGPA: 8.67</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fas fa-code"></i> C</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science & ML</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-brain"></i> Machine Learning</li>
+                        <li><i class="fas fa-chart-line"></i> Data Analysis</li>
+                        <li><i class="fas fa-eye"></i> Computer Vision</li>
+                        <li><i class="fas fa-calculator"></i> Statistical Modeling</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Libraries</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-table"></i> Pandas</li>
+                        <li><i class="fas fa-calculator"></i> NumPy</li>
+                        <li><i class="fas fa-chart-bar"></i> Matplotlib</li>
+                        <li><i class="fas fa-robot"></i> Scikit-learn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="experience-item">
+                <h3>Class Representative</h3>
+                <span class="org">IIIT SriCity</span>
+                <span class="date">2023 - 2024</span>
+                <p>Served as a liaison between students and faculty, addressing academic concerns, organizing class activities, and facilitating communication.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Design Team Member</h3>
+                <span class="org">NSS & Epoch, IIIT SriCity</span>
+                <span class="date">2024</span>
+                <p>Created visual designs for college events and promotional materials, contributing to the aesthetic presentation of various initiatives.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Computer Vision Core Member</h3>
+                <span class="org">Epoch, IIIT SriCity</span>
+                <span class="date">2024 - 2025</span>
+                <p>Worked as a computer vision core member, developing and implementing computer vision algorithms and applications.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Core Committee Member</h3>
+                <span class="org">Epoch, IIIT SriCity</span>
+                <span class="date">2024 - 2025</span>
+                <p>Contributed to planning and executing technical events, managing team coordination, and ensuring successful event outcomes.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Core Member</h3>
+                <span class="org">Beatripperz, IIIT SriCity</span>
+                <span class="date">2024 - 2025</span>
+                <p>Participated in dance performances and events, contributing to the cultural activities of the institute.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Marketing Core Member</h3>
+                <span class="org">Fstops, IIIT SriCity</span>
+                <span class="date">2024 - 2025</span>
+                <p>Developed marketing strategies and promotional campaigns for the college photography club.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Marketing Associate</h3>
+                <span class="org">TEDxSriCity, IIIT SriCity</span>
+                <span class="date">2024 - 2025</span>
+                <p>Developed and executed marketing strategies to promote TEDx event, increasing audience engagement and participation through targeted campaigns.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Sponsorship Member</h3>
+                <span class="org">Abhisarga, IIIT SriCity</span>
+                <span class="date">2025</span>
+                <p>Worked on securing sponsorships for college events, building relationships with potential partners, and managing sponsorship agreements.</p>
+            </div>
+            <div class="experience-item">
+                <h3>UG Core Member</h3>
+                <span class="org">Meraki Arts Club, IIIT SriCity</span>
+                <span class="date">2024 - Present</span>
+                <p>Contributing to the planning and execution of artistic events, promoting creative expression, and managing club activities and collaborations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Object Detection System</h3>
+                        <span class="date">June 2024 – Present</span>
+                        <p>Developing Object detection that identifies and locates objects in images/videos using algorithms like CNNs, YOLO, and SSD.</p>
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>Computer Vision</span>
+                            <span>Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Crop Recommendation System</h3>
+                        <span class="date">July 2024 – Present</span>
+                        <p>Developing a crop recommendation model based on soil composition and environmental factors like nitrogen, phosphorus, potassium content, temperature, humidity, pH value, and rainfall.</p>
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>Matplotlib</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Stock Market Prediction</h3>
+                        <span class="date">September 2023</span>
+                        <p>Developed predictive models for forecasting stock prices using machine learning techniques including SVM and Linear Regression algorithms.</p>
+                        <div class="tech">
+                            <span>Python</span>
+                            <span>Machine Learning</span>
+                            <span>Scikit-learn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="github" class="github-projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My GitHub Projects</h2>
+            </div>
+            <div class="github-container">
+                <p>I actively develop and maintain projects on GitHub. Here's a showcase of my work and contributions:</p>
+                
+                <div class="github-stats">
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Repositories</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Contributions</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Stars Earned</div>
+                    </div>
+                </div>
+                
+                <p>Visit my GitHub profile to explore all my projects, including machine learning models, web applications, and coding practice repositories.</p>
+                
+                <a href="https://github.com/snehasrare" target="_blank" class="btn" style="margin-top: 20px;">
+                    <i class="fab fa-github"></i> View My GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Statement Section -->
+    <section id="statement" class="personal-statement">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Journey & Aspirations</h2>
+            </div>
+            <div class="statement-content">
+                <p>My journey in computer science began with curiosity about how technology can solve real-world problems. As a student at IIIT SriCity, I've been fortunate to explore various domains from machine learning to computer vision, and each project has deepened my passion for this field.</p>
+                
+                <p>What excites me most about technology is its potential to create positive change. Whether it's developing AI models that can assist farmers with crop decisions or creating systems that make information more accessible, I believe in technology as a force for good.</p>
+                
+                <p>Beyond technical skills, my experiences as Class Representative and in various clubs have taught me the importance of collaboration, communication, and leadership. I've learned that the best solutions often emerge when diverse perspectives come together.</p>
+                
+                <p>Looking ahead, I aspire to contribute to cutting-edge AI research while maintaining my creative pursuits in design and arts. I believe the intersection of technology and creativity is where the most innovative solutions are born.</p>
+                
+                <p>I'm always open to new connections, collaborations, and learning opportunities. Feel free to reach out if you'd like to discuss technology, potential projects, or just share ideas!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resume Highlights</h2>
+            </div>
+            <div class="resume-container">
+                <p>Below are key highlights from my resume. For a comprehensive view of my experience, skills, and education, you can download my full resume.</p>
+                
+                <div class="resume-highlights">
+                    <div class="resume-highlight">
+                        <h4>Education</h4>
+                        <p>B.Tech in CSE at IIIT SriCity</p>
+                        <p>CGPA: 8.67/10</p>
+                        <p>Expected 2027</p>
+                    </div>
+                    
+                    <div class="resume-highlight">
+                        <h4>Technical Skills</h4>
+                        <p>Python, Java, C</p>
+                        <p>Machine Learning</p>
+                        <p>Data Analysis</p>
+                    </div>
+                    
+                    <div class="resume-highlight">
+                        <h4>Leadership</h4>
+                        <p>Class Representative</p>
+                        <p>Club Core Member</p>
+                        <p>Event Organizer</p>
+                    </div>
+                </div>
+                
+                <div class="resume-download">
+                    <a href="my resume.pdf" download class="btn">
+                        <i class="fas fa-download"></i> Download Full Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurricular Section -->
+    <section id="extracurricular" class="extracurricular">
+        <div class="container">
+            <div class="section-title">
+                <h2>Extracurricular Activities</h2>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Meraki Arts Club</h3>
+                    <p>UG Core Member</p>
+                    <p>Organizing art events, exhibitions, and promoting creative activities on campus.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Class Representative</h3>
+                    <p>IIIT SriCity</p>
+                    <p>Representing class interests, facilitating communication between students and faculty.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>TEDx Marketing</h3>
+                    <p>Marketing Associate</p>
+                    <p>Promoted TEDx event through strategic marketing campaigns and social media engagement.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Sponsorship Team</h3>
+                    <p>Abhisarga 2025</p>
+                    <p>Worked on securing sponsorships for college fest and managing partner relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>snehasrisai.v23@iiits.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 7396721745</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>SriCity, Andhra Pradesh, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div>
+                            <h4>Resume</h4>
+                            <p><a href="my resume.pdf" download>Download PDF</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/sneha-sri-sai-vadde" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/snehasrare" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vadde Sneha Sri Sai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        
+        // Add active class to navigation links on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
